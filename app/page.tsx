@@ -2,7 +2,8 @@
 
 import React, { useState } from "react";
 import { Dialog, DialogPanel } from "@headlessui/react";
-import { MarsIcon, Film, Sparkles, Users, Mail, Phone, MapPin, Facebook, Instagram } from "lucide-react";
+import { Film, Users, Mail, Phone, MapPin, Facebook, Instagram, MarsIcon } from "lucide-react";
+import Image from "next/image";
 import { JSX } from "react/jsx-runtime";
 
 const navigation = [
@@ -29,12 +30,54 @@ const specializations = [
 ];
 
 const clients = [
-  { name: "Studio 101", location: "No. 155/2, Kynsey Road, Colombo 08" },
-  { name: "Commercial Bank of Ceylon PLC", location: "No. 21, Sir Razik Fareed Mawatha, Colombo 01" },
-  { name: "Long Island Films", location: "Colombo 05" },
-  { name: "24 frames", location: "No. 7A, Esther Place, Park road, Colombo 05" },
-  { name: "Neochem International (Pvt) Ltd", location: "No.478, Pannipitiya Road, Pelawatta, Battaramulla" },
-  { name: "Autumn Lane Studio", location: "Battaramulla South, Colombo" },
+  {
+    name: "Studio 101",
+    logo: "/assets/logos/studio_101_logo.png",
+    location: "No. 155/2, Kynsey Road, Colombo 08",
+  },
+  {
+    name: "Commercial Bank of Ceylon PLC",
+    logo: "/assets/logos/com_bank_logo.png",
+    location: "No. 21, Sir Razik Fareed Mawatha, Colombo 01",
+  },
+  {
+    name: "Long Island Films",
+    logo: "/assets/logos/long_island_logo.png",
+    location: "Colombo 05",
+  },
+  {
+    name: "24 frames",
+    logo: "/assets/logos/studio_101_logo.png",
+    location: "No. 7A, Esther Place, Park road, Colombo 05",
+  },
+  {
+    name: "Neochem International (Pvt) Ltd",
+    logo: "/assets/logos/neo_chen_logo.png",
+    location: "No.478, Pannipitiya Road, Pelawatta, Battaramulla",
+  },
+  {
+    name: "Autumn Lane Studio",
+    logo: "/assets/logos/autumn_logo.png",
+    location: "Battaramulla South, Colombo",
+  },
+];
+
+const teamMembers = [
+  {
+    name: "Erandi",
+    role: "VFX Supervisor",
+    image: "/assets/team/erandi.png",
+  },
+  {
+    name: "Iresha",
+    role: "3D Artist",
+    image: "/assets/team/iresha.png",
+  },
+  {
+    name: "Nigel",
+    role: "Motion Graphics Designer",
+    image: "/assets/team/nigel.png",
+  },
 ];
 
 const timeline = [
@@ -108,10 +151,13 @@ export default function VisualXWebsite() {
         <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
           <div className="flex lg:flex-1">
             <a href="#" className="-m-1.5 p-1.5 flex items-center gap-2">
-              <Sparkles className="h-8 w-8 text-purple-600" />
-              <span className="text-xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-                VISUAL X
-              </span>
+              <Image
+                src="/assets/logos/VISUAL-X--LOGO.png"
+                alt="Visual X Logo"
+                width={200}
+                height={150}
+                className="h-20 w-auto"
+              />
             </a>
           </div>
           <div className="flex lg:hidden">
@@ -146,7 +192,13 @@ export default function VisualXWebsite() {
           <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white p-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
             <div className="flex items-center justify-between">
               <a href="#" className="-m-1.5 p-1.5 flex items-center gap-2">
-                <Sparkles className="h-8 w-8 text-purple-600" />
+                <Image
+                  src="/assets/logos/VISUAL-X--LOGO-BLACK.png"
+                  alt="Visual X Logo"
+                  width={150}
+                  height={50}
+                  className="h-12 w-auto"
+                />
                 <span className="text-xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
                   VISUAL X
                 </span>
@@ -337,7 +389,7 @@ export default function VisualXWebsite() {
 
         {/* Showreel Video Section - MOVED TO APPEAR LATER */}
         <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8 bg-gray-50">
-          <div className="mx-auto max-w-2xl lg:mx-0 text-center mb-12">
+          <div className="mx-auto max-w-2xl lg:text-center mb-12">
             <h2 className="text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">Our Showreel</h2>
             <p className="mt-6 text-lg/8 text-gray-600">
               Experience the artistry and technical excellence that defines Visual X through our portfolio of work.
@@ -368,6 +420,15 @@ export default function VisualXWebsite() {
               <div className="lg:col-end-1 lg:w-full lg:max-w-lg lg:pb-8">
                 <h2 className="text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">CEO/Director</h2>
                 <h3 className="mt-6 text-3xl font-bold tracking-tight text-purple-600">Rivinu Amanda</h3>
+                <div className="relative h-64 w-64 my-6 rounded-lg overflow-hidden">
+                  <Image
+                    src={"/assets/team/rivinu.png"}
+                    alt={"Rivinu Amanda"}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </div>
                 <p className="mt-6 text-xl/8 text-gray-700">
                   Mr. Rivinu Amanda established Visual X (Pvt) Ltd in 2023, after working as an independent VFX artist
                   for 10 years since 2014.
@@ -394,7 +455,7 @@ export default function VisualXWebsite() {
                   <div className="order-first flex w-64 flex-none justify-end self-end lg:w-auto">
                     <img
                       alt="Studio Work"
-                      src="https://images.unsplash.com/photo-1536240478700-b869070f9279?ixlib=rb-4.0.3&auto=format&fit=crop&w=768&h=604&q=80"
+                      src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=768&h=604&q=80"
                       className="aspect-4/3 w-[24rem] max-w-none flex-none rounded-2xl bg-gray-50 object-cover"
                     />
                   </div>
@@ -413,20 +474,60 @@ export default function VisualXWebsite() {
 
         {/* Clients Section */}
         <div id="clients" className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8 bg-gray-50">
-          <div className="mx-auto max-w-2xl lg:mx-0">
+          <div className="mx-auto max-w-2xl lg:mx-0 text-center">
             <h2 className="text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">Our Clients</h2>
             <p className="mt-6 text-lg/8 text-gray-600">
               Trusted by leading brands and production houses across Sri Lanka for exceptional visual effects and
               production services.
             </p>
           </div>
-          <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-6 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+          <div className="mx-auto mt-16 grid grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-6">
             {clients.map((client, idx) => (
-              <div key={idx} className="bg-white rounded-xl p-6 shadow-sm ring-1 ring-gray-900/5">
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">{client.name}</h3>
-                <p className="text-sm text-gray-600">{client.location}</p>
+              <div
+                key={idx}
+                className="flex flex-col items-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow h-full"
+              >
+                <div className="relative h-20 w-full mb-2">
+                  <Image
+                    src={client.logo}
+                    alt={`${client.name} Logo`}
+                    fill
+                    className="object-contain p-2"
+                    sizes="(max-width: 768px) 50vw, 20vw"
+                  />
+                </div>
+                <p className="text-sm text-center text-gray-600 mt-2">{client.name}</p>
               </div>
             ))}
+          </div>
+        </div>
+
+        {/* Team Section */}
+        <div id="team" className="bg-white py-24 sm:py-32">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+            <div className="mx-auto max-w-2xl text-center">
+              <h2 className="text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">Meet Our Team</h2>
+              <p className="mt-6 text-lg leading-8 text-gray-600">
+                Our talented team of creative professionals brings your vision to life with expertise and passion.
+              </p>
+            </div>
+            <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+              {teamMembers.map((member) => (
+                <div key={member.name} className="flex flex-col items-center text-center">
+                  <div className="relative h-56 w-56 overflow-hidden rounded-2xl bg-gray-100">
+                    <Image
+                      src={member.image}
+                      alt={member.name}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                  </div>
+                  <h3 className="mt-6 text-lg font-semibold text-gray-900">{member.name}</h3>
+                  <p className="text-sm leading-6 text-gray-600">{member.role}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
@@ -504,7 +605,7 @@ export default function VisualXWebsite() {
               ))}
             </div>
             <p className="mt-8 text-sm/6 text-gray-600 md:order-1 md:mt-0">
-              &copy; 2024 Visual X (Pvt) Ltd. All rights reserved. | Reg No. PV 00288753
+              &copy; 2026 Visual X (Pvt) Ltd. All rights reserved. | Reg No. PV 00288753
             </p>
           </div>
         </div>
